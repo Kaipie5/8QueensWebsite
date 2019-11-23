@@ -1,0 +1,31 @@
+Notes for Code Fellows Code 301
+15 Multiple choice questions 
+An interactive online website
+- Uses Vanilla JavaScript
+- Uses HTML
+- Event Listeners
+    - Process and store user input
+        - Username
+        - Button Click
+        - Something Fun
+    - Viewable after screen refresh
+- Viewable on the internet
+
+What do I want to do?
+- 8 Queens Test?
+- Quiz Show? (Easy Mode)
+
+
+Gonna Try 8 Queens Test
+- Goal: How many different combinations of 8 queens can you find?
+    - Important factors:
+        - Queen Functionality
+        - Score
+        - Username
+        - Test board Button
+        - ChessBoard
+            - Interactive buttons for each tile
+
+- STILL TO do
+    - Put page online
+    - Add score or something?

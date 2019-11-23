@@ -1,0 +1,451 @@
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>8QueensChallenge</title>
+        <link rel="stylesheet" href="Grid.css">
+        <link rel = "stylesheet"
+          type = "text/css"
+          href = "textBoxes.css" />
+    </head>
+    <body>
+        <h1>Welcome to the 8 Queens Challenge!</h1>
+        <h1>Please place 8 queens such that no queen is horizontal, vertical, or diagonal from any other queen.</h1>
+        <form action = >
+            <fieldset>
+                <label id="welcomeMessage">Please Sign In: </label><br>
+                <input type = "text" id = "txtName" /><br>
+                <input type = "button" id="signIn" value = "Sign In" onclick = "sayHi()"/><br>
+                
+            </fieldset>
+        </form>
+        <script type = "text/javascript">
+            window.onload = setUp()
+            //From W3 school cookie example
+            function getCookie(userName) {
+                    var name = userName + "=";
+                    var decodedCookie = decodeURIComponent(document.cookie);
+                    var ca = decodedCookie.split(';');
+                    for(var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                        }
+                        if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                        }
+                    }
+                    return "";
+                }
+            function setUp() {  
+                console.log("setUp")
+                if (getCookie("username") != "") {
+                    console.log("HI")
+                    var welcomeMessage = document.getElementById("welcomeMessage")
+                    var name = getCookie("username"); 
+                    console.log(name)
+                    welcomeMessage.innerText = "Welcome back, " + name + "!"
+                    document.getElementById("txtName").hidden=true;
+                    var changedButton = document.getElementById("signIn")
+                    changedButton.value = "Log Out"
+                    changedButton.onclick = sayBye
+                } else {
+                    console.log("BYE")
+                    var welcomeMessage = document.getElementById("welcomeMessage")
+                    welcomeMessage.innerText = "Please Sign In:"
+                    document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                    document.getElementById("txtName").hidden = false;
+                    document.getElementById("txtName").value = ""
+                    var changedButton = document.getElementById("signIn")
+                    changedButton.value = "Sign In"
+                    changedButton.onclick = sayHi
+                }
+            }
+            function sayHi() {
+                var txtName = document.getElementById("txtName")
+                var welcomeMessage = document.getElementById("welcomeMessage")
+                var name = txtName.value
+                if (name != "") {
+                    document.cookie = "username=" + name; 
+                    welcomeMessage.innerText = "Hi there, " + name + "!"
+                    document.getElementById("txtName").hidden=true;
+                    var changedButton = document.getElementById("signIn")
+                    changedButton.value = "Log Out"
+                    changedButton.onclick = sayBye
+                } else {
+                    welcomeMessage.innerText = "Please Sign In"
+                }
+                
+             }
+            function sayBye(){
+                var welcomeMessage = document.getElementById("welcomeMessage")
+                welcomeMessage.innerText = "Please Sign In:"
+                document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+                document.getElementById("txtName").hidden = false;
+                document.getElementById("txtName").value = ""
+                var changedButton = document.getElementById("signIn")
+                changedButton.value = "Sign In"
+                changedButton.onclick = sayHi
+            }
+        </script>
+        <table class="board">
+            <tr>
+                <td>
+                    <div id="0" class="square full"></div>
+                </td>
+                <td>
+                    <div id="1" class="square full"></div>
+                </td>
+                <td>
+                    <div id="2" class="square full"></div>
+                </td>
+                <td>
+                    <div id="3" class="square full"></div>
+                </td>
+                <td>
+                    <div id="4" class="square full"></div>
+                </td>
+                <td>
+                    <div id="5" class="square full"></div>
+                </td>
+                <td>
+                    <div id="6" class="square full"></div>
+                </td>
+                <td>
+                    <div id="7" class="square full"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="8" class="square full"></div>
+                </td>
+                <td>
+                    <div id="9" class="square full"></div>
+                </td>
+                <td>
+                    <div id="10" class="square full"></div>
+                </td>
+                <td>
+                    <div id="11" class="square full"></div>
+                </td>
+                <td>
+                    <div id="12" class="square full"></div>
+                </td>
+                <td>
+                    <div id="13" class="square full"></div>
+                </td>
+                <td>
+                    <div id="14" class="square full"></div>
+                </td>
+                <td>
+                    <div id="15" class="square full"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="16" class="square full"></div>
+                </td>
+                <td>
+                    <div id="17" class="square full"></div>
+                </td>
+                <td>
+                    <div id="18" class="square full"></div>
+                </td>
+                <td>
+                    <div id="19" class="square full"></div>
+                </td>
+                <td>
+                    <div id="20" class="square full"></div>
+                </td>
+                <td>
+                    <div id="21" class="square full"></div>
+                </td>
+                <td>
+                    <div id="22" class="square full"></div>
+                </td>
+                <td>
+                    <div id="23" class="square full"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="24" class="square full"></div>
+                </td>
+                <td>
+                    <div id="25" class="square full"></div>
+                </td>
+                <td>
+                    <div id="26" class="square full"></div>
+                </td>
+                <td>
+                    <div id="27" class="square full"></div>
+                </td>
+                <td>
+                    <div id="28" class="square full"></div>
+                </td>
+                <td>
+                    <div id="29" class="square full"></div>
+                </td>
+                <td>
+                    <div id="30" class="square full"></div>
+                </td>
+                <td>
+                    <div id="31" class="square full"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="32" class="square full"></div>
+                </td>
+                <td>
+                    <div id="33" class="square full"></div>
+                </td>
+                <td>
+                    <div id="34" class="square full"></div>
+                </td>
+                <td>
+                    <div id="35" class="square full"></div>
+                </td>
+                <td>
+                    <div id="36" class="square full"></div>
+                </td>
+                <td>
+                    <div id="37" class="square full"></div>
+                </td>
+                <td>
+                    <div id="38" class="square full"></div>
+                </td>
+                <td>
+                    <div id="39" class="square full"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="40" class="square full"></div>
+                </td>
+                <td>
+                    <div id="41" class="square full"></div>
+                </td>
+                <td>
+                    <div id="42" class="square full"></div>
+                </td>
+                <td>
+                    <div id="43" class="square full"></div>
+                </td>
+                <td>
+                    <div id="44" class="square full"></div>
+                </td>
+                <td>
+                    <div id="45" class="square full"></div>
+                </td>
+                <td>
+                    <div id="46" class="square full"></div>
+                </td>
+                <td>
+                    <div id="47" class="square full"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="48" class="square full"></div>
+                </td>
+                <td>
+                    <div id="49" class="square full"></div>
+                </td>
+                <td>
+                    <div id="50" class="square full"></div>
+                </td>
+                <td>
+                    <div id="51" class="square full"></div>
+                </td>
+                <td>
+                    <div id="52" class="square full"></div>
+                </td>
+                <td>
+                    <div id="53" class="square full"></div>
+                </td>
+                <td>
+                    <div id="54" class="square full"></div>
+                </td>
+                <td>
+                    <div id="55" class="square full"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="56" class="square full"></div>
+                </td>
+                <td>
+                    <div id="57" class="square full"></div>
+                </td>
+                <td>
+                    <div id="58" class="square full"></div>
+                </td>
+                <td>
+                    <div id="59" class="square full"></div>
+                </td>
+                <td>
+                    <div id="60" class="square full"></div>
+                </td>
+                <td>
+                    <div id="61" class="square full"></div>
+                </td>
+                <td>
+                    <div id="62" class="square full"></div>
+                </td>
+                <td>
+                    <div id="63" class="square full"></div>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <div id="messageBox">Place a Queen!</div>
+            <br>
+            <div class="controls">
+                    <button class="button" onclick="submitBoard()">Submit Board</button> 
+            </div><br>
+            <div class="controls">
+                <button class="button" onclick="resetGame()">Reset Board</button> 
+            </div>
+        <script>
+
+            var setMessageBox = function( caption ) {
+                var messageBox = document.getElementById( "messageBox" )
+                messageBox.innerHTML = caption
+            };
+
+            var squares = document.getElementsByClassName("square")
+
+            var squareIsOpen = function( square ) {
+                return ( square.innerHTML !== "X")
+            }
+            var inputQueen = function() {
+                setMessageBox(  "Place a Queen!"  )
+                var id = this.getAttribute("id")
+                var square = document.getElementById(id)
+                if (squareIsOpen(square)) {
+                    setMessageBox(  "Placed queen at: " + id  )
+                    square.innerHTML = "X"
+                } else {
+                    setMessageBox(  "Removed queen at: " + id  )
+                    square.innerHTML = ""
+                }
+                
+            }
+
+            for (var i = 0; i < squares.length; i++) {
+                squares[i].addEventListener('click', inputQueen, false)
+            }
+
+            var resetGame = function() {
+                setMessageBox( "Place a queen!" );
+
+                for (var id = 0; id < squares.length; id++) {
+                    var square = document.getElementById( id )
+                    square.innerHTML = ""
+                    square.style.backgroundColor = "rgb(255, 255, 255)"
+                }
+            }
+
+            var hasQueen = function(square) {
+                return ( square.innerHTML == "X")
+            }
+            
+            var submitBoard = function() {
+                setMessageBox( "Board Submitted" )
+                if (check8QueenSuccess() && numberOfQueens() == 8) {
+                    setMessageBox("8 Queens Success!")
+                } else {
+                    setMessageBox("8 Queens Failure!")
+                }
+            }
+            var numberOfQueens = function() {
+                var queenCount = 0
+                for (var id = 0; id < squares.length; id++) {
+                    var square = document.getElementById(id)
+                    if (square.innerHTML == "X") {
+                        queenCount = queenCount + 1
+                    }
+                }
+                return queenCount
+            }
+
+            var check8QueenSuccess = function() {
+                var success = false
+                for (var id = 0; id < squares.length; id++) {
+                    var square = document.getElementById(id)
+                    if (square.innerHTML == "X") {
+                        if (noQueensHorizontal(id) && noQueensAbove(id) && noQueensDiagonal(id)) {
+                            success = true
+                        } else {
+                            return false
+                        }
+                    }
+                    
+                }
+                return success
+            }
+
+            var noQueensHorizontal = function(id) {
+                var leftId = id
+                while (leftId % 8 != 0 && leftId >= 0) {  
+                    leftId = leftId - 1
+                    var square = document.getElementById(leftId)
+                    if (hasQueen(square)) {
+                        console.log("horizontalFailure")
+                        return false
+                    }
+                }
+                return true
+            }
+
+            var noQueensAbove = function(id) {
+                var aboveId = id - 8
+                while (aboveId >= 0) {  
+                    var square = document.getElementById(aboveId)
+                    if (hasQueen(square)) {
+                        console.log("aboveFailure")
+                        return false
+                    }
+                    aboveId = aboveId - 8
+                }
+                return true
+            }
+
+            var noQueensDiagonal = function(id) {
+                if (checkRightDiagonals(id) && checkLeftDiagonals(id)) {
+                    return true
+                }
+                return false
+            }
+
+            var checkRightDiagonals = function(id) {
+                var aboveId = id - 7
+                while (aboveId % 8 != 0 && aboveId >=0) {  
+                    
+                    var square = document.getElementById(aboveId)
+                    if (hasQueen(square)) {
+                        console.log("rightDiaganolFailure")
+                        return false
+                    }
+                    aboveId = aboveId - 7
+                }
+                return true
+            }
+
+            var checkLeftDiagonals = function(id) {
+                var aboveId = id - 9
+                while ((aboveId + 1) % 8 != 0 && aboveId >= 0) {  
+                    
+                    var square = document.getElementById(aboveId)
+                    if (hasQueen(square)) {
+                        console.log("leftDiagonalFailure")
+                        return false
+                    }
+                    aboveId = aboveId - 9
+                }
+                return true
+            }
+
+        </script>
+    </body>
+</html>
